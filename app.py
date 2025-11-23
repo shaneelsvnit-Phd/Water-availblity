@@ -1,12 +1,12 @@
 import streamlit as st
-import joblib
+import pickle
 import numpy as np
 import pandas as pd
 import pytz
 # Load the trained model
 # NOTE: Ensure 'reservoir_model.pkl' is uploaded to GitHub in the same folder!
 try:
-    model = joblib.load('reservoir_model.pkl')
+    model = pickle.load('mdl.pkl')
 except FileNotFoundError:
     st.error("Model file 'reservoir_model.pkl' not found. Please upload it to your GitHub repository.")
     st.stop()
@@ -80,4 +80,5 @@ chart_data = pd.DataFrame({
 st.line_chart(chart_data.set_index('Temperature (°C)'))
 
 st.caption("Developed by shaneel AI Scientist (Simulation)")
+
 
