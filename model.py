@@ -5,6 +5,7 @@ import sklearn as sk
 import seaborn as sns
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
+import pytz
 
 data = pd.read_csv(r"data.csv")
 data = data.drop(["FLOW_DATE"],axis=1)
@@ -32,4 +33,5 @@ plt.xlabel('days')
 plt.ylabel('Storage level in tmc')
 
 sns.pairplot(data[["PRESENT_STORAGE_TMC","RES_LEVEL_FT","INFLOW_CUSECS","OUTFLOW_CUECS"]],diag_kind='kde')
+
 
